@@ -32,8 +32,8 @@ public class MainActivity extends Activity {
         final TextView outputView = (TextView)findViewById(R.id.output_view);
 
         NLFoursquareClientParameters clientParameters = new NLFoursquareClientParameters(
-                R.string.client_id,
-                R.string.client_secret
+                getString(R.string.client_id),
+                getString(R.string.client_secret)
         );
         NLFoursquareVenueSearchParametersBuilder paramsBuilder = new NLFoursquareVenueSearchParametersBuilder();
         paramsBuilder.latLon(40.705622, -74.013584);
