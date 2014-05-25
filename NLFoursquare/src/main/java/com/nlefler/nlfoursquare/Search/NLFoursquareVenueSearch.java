@@ -1,6 +1,8 @@
 package com.nlefler.nlfoursquare.Search;
 
-import com.nlefler.nlfoursquare.Model.NLFoursquareVenue;
+import com.nlefler.nlfoursquare.Model.FoursquareResponse.NLFoursquareResponse;
+import com.nlefler.nlfoursquare.Model.Venue.NLFoursquareVenue;
+import com.nlefler.nlfoursquare.Model.Venue.NLFoursquareVenueSearchResponse;
 
 import java.util.List;
 import java.util.Map;
@@ -14,5 +16,6 @@ import retrofit.http.QueryMap;
  */
 public interface NLFoursquareVenueSearch {
     @GET("/venues/search")
-    void search(@QueryMap Map<String, String> parameters, Callback<List<NLFoursquareVenue>> callback);
+    void search(@QueryMap Map<String, String> parameters,
+                Callback<NLFoursquareResponse<NLFoursquareVenueSearchResponse>> callback);
 }
