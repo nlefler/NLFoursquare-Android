@@ -36,6 +36,7 @@ public class NLFoursquareClientParameters {
         return new HashMap<String, String>() {{
             put("client_id", _clientID);
             put("client_secret", _clientSecret);
+            put("v", _clientAPIVersion);
         }};
     }
 }
