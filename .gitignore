@@ -24,3 +24,6 @@ proguard/
 
 # JetBrains files
 .idea/
+
+# Keys
+secrets.xml
