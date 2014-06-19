@@ -21,7 +21,7 @@ public class NLFoursquareVenue {
     public NLFoursquareVenueHours popular;
     public NLFoursquareVenueMenu menu;
     public NLFoursquareVenuePrice price;
-    public int rating;
+    public float rating;
     public NLFoursquareVenueSpecials specials;
     public NLFoursquareVenueHereNow hereNow;
     public String storeId;
