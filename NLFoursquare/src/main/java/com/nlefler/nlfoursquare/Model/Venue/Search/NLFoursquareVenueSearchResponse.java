@@ -1,4 +1,6 @@
-package com.nlefler.nlfoursquare.Model.Venue;
+package com.nlefler.nlfoursquare.Model.Venue.Search;
+
+import com.nlefler.nlfoursquare.Model.Venue.NLFoursquareVenue;
 
 import java.util.List;
 
