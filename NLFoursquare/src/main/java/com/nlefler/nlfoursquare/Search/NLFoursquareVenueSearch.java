@@ -1,10 +1,8 @@
 package com.nlefler.nlfoursquare.Search;
 
 import com.nlefler.nlfoursquare.Model.FoursquareResponse.NLFoursquareResponse;
-import com.nlefler.nlfoursquare.Model.Venue.NLFoursquareVenue;
-import com.nlefler.nlfoursquare.Model.Venue.NLFoursquareVenueSearchResponse;
+import com.nlefler.nlfoursquare.Model.Venue.Search.NLFoursquareVenueSearchResponse;
 
-import java.util.List;
 import java.util.Map;
 
 import retrofit.Callback;

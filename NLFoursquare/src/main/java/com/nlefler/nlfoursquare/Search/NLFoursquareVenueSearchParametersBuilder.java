@@ -1,5 +1,6 @@
 package com.nlefler.nlfoursquare.Search;
 
+import com.nlefler.nlfoursquare.Common.NLFoursquareEndpointParametersBuilder;
 import com.nlefler.nlfoursquare.Model.NLFoursquareClientParameters;
 
 import java.util.HashMap;
@@ -9,14 +10,9 @@ import java.util.Map;
 /**
  * Created by Nathan Lefler on 5/19/14.
  */
-public class NLFoursquareVenueSearchParametersBuilder {
-    private Map<String, String> _params;
+public class NLFoursquareVenueSearchParametersBuilder extends NLFoursquareEndpointParametersBuilder {
 
-    public NLFoursquareVenueSearchParametersBuilder() {
-        _params = new HashMap<>();
-    }
-
-    private boolean validate() {
+    public boolean validate() {
         return _params.containsKey("ll") || _params.containsKey("near");
     }
 
@@ -209,17 +205,5 @@ public class NLFoursquareVenueSearchParametersBuilder {
         _params.put("linkedId", id);
 
         return this;
-    }
-
-    /*!
-     * Builds the query parameters map for a @ref NLFoursquareVenueSearch call.
-     */
-    public Map<String, String> buildWithClientParameters(NLFoursquareClientParameters clientParams) {
-        Map<String, String> fullParams = new HashMap<String, String>();
-        // TODO: Error if invalid parameters
-        fullParams.putAll(clientParams.authenticationParameters());
-        fullParams.putAll(_params);
-
-        return fullParams;
     }
 }

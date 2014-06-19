@@ -2,18 +2,22 @@ package org.michaelevans.foursquaredemo;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.nlefler.nlfoursquare.Explore.NLFoursquareVenueExplore;
+import com.nlefler.nlfoursquare.Explore.NLFoursquareVenueExploreParametersBuilder;
 import com.nlefler.nlfoursquare.Model.FoursquareResponse.NLFoursquareResponse;
 import com.nlefler.nlfoursquare.Model.NLFoursquareClientParameters;
+import com.nlefler.nlfoursquare.Model.Venue.Explore.NLFoursquareVenueExploreGroup;
+import com.nlefler.nlfoursquare.Model.Venue.Explore.NLFoursquareVenueExploreGroupRecommendedItem;
+import com.nlefler.nlfoursquare.Model.Venue.Explore.NLFoursquareVenueExploreResponse;
 import com.nlefler.nlfoursquare.Model.Venue.NLFoursquareVenue;
-import com.nlefler.nlfoursquare.Model.Venue.NLFoursquareVenueSearchResponse;
+import com.nlefler.nlfoursquare.Model.Venue.Search.NLFoursquareVenueSearchResponse;
 import com.nlefler.nlfoursquare.Search.NLFoursquareVenueSearch;
 import com.nlefler.nlfoursquare.Search.NLFoursquareVenueSearchParametersBuilder;
-
-import java.util.List;
 
 import retrofit.Callback;
 import retrofit.RestAdapter;
@@ -35,20 +39,52 @@ public class MainActivity extends Activity {
                 getString(R.string.client_id),
                 getString(R.string.client_secret)
         );
-        NLFoursquareVenueSearchParametersBuilder paramsBuilder = new NLFoursquareVenueSearchParametersBuilder();
+
+//        NLFoursquareVenueSearchParametersBuilder paramsBuilder = new NLFoursquareVenueSearchParametersBuilder();
+//        paramsBuilder.latLon(40.705622, -74.013584);
+//
+//        RestAdapter restAdapter = new RestAdapter.Builder()
+//                .setEndpoint("https://api.foursquare.com/v2")
+//                .build();
+//
+//        NLFoursquareVenueSearch searchEndpoint = restAdapter.create(NLFoursquareVenueSearch.class);
+//        searchEndpoint.search(paramsBuilder.buildWithClientParameters(clientParameters),
+//                new Callback<NLFoursquareResponse<NLFoursquareVenueSearchResponse>>() {
+//                    @Override
+//                    public void success(NLFoursquareResponse<NLFoursquareVenueSearchResponse> foursquareResponse,
+//                                        Response response) {
+//                        StringBuilder sb = new StringBuilder();
+//                        for (NLFoursquareVenue venue : foursquareResponse.response.venues) {
+//                            sb.append(venue.name).append("\n");
+//                        }
+//                        outputView.setText("SUCCESS: " + sb.toString());
+//                    }
+//
+//                    @Override
+//                    public void failure(RetrofitError retrofitError) {
+//                        outputView.setText("ERROR: " + retrofitError.getResponse().getUrl());
+//                    }
+//                });
+
+        NLFoursquareVenueExploreParametersBuilder paramsBuilder = new NLFoursquareVenueExploreParametersBuilder();
         paramsBuilder.latLon(40.705622, -74.013584);
+
         RestAdapter restAdapter = new RestAdapter.Builder()
                 .setEndpoint("https://api.foursquare.com/v2")
                 .build();
-        NLFoursquareVenueSearch searchEndpoint = restAdapter.create(NLFoursquareVenueSearch.class);
-        searchEndpoint.search(paramsBuilder.buildWithClientParameters(clientParameters),
-                new Callback<NLFoursquareResponse<NLFoursquareVenueSearchResponse>>() {
+
+        NLFoursquareVenueExplore exploreEndpoint = restAdapter.create(NLFoursquareVenueExplore.class);
+        exploreEndpoint.explore(paramsBuilder.buildWithClientParameters(clientParameters),
+                new Callback<NLFoursquareResponse<NLFoursquareVenueExploreResponse>>() {
                     @Override
-                    public void success(NLFoursquareResponse<NLFoursquareVenueSearchResponse> foursquareResponse,
+                    public void success(NLFoursquareResponse<NLFoursquareVenueExploreResponse> foursquareResponse,
                                         Response response) {
                         StringBuilder sb = new StringBuilder();
-                        for (NLFoursquareVenue venue : foursquareResponse.response.venues) {
-                            sb.append(venue.name).append("\n");
+                        for (NLFoursquareVenueExploreGroup group : foursquareResponse.response.groups) {
+                            for (NLFoursquareVenueExploreGroupRecommendedItem item : group.items) {
+                                NLFoursquareVenue venue = item.venue;
+                                sb.append(venue.name).append("\n");
+                            }
                         }
                         outputView.setText("SUCCESS: " + sb.toString());
                     }
@@ -56,8 +92,10 @@ public class MainActivity extends Activity {
                     @Override
                     public void failure(RetrofitError retrofitError) {
                         outputView.setText("ERROR: " + retrofitError.getResponse().getUrl());
+                        Log.e("4SQDEMO", retrofitError.getResponse().getUrl());
                     }
-                });
+                }
+        );
     }
 
 
