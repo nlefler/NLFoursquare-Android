@@ -4,20 +4,13 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.nlefler.nlfoursquare.Model.FoursquareResponse.NLFoursquareResponse;
 import com.nlefler.nlfoursquare.Model.NLFoursquareClientParameters;
-import com.nlefler.nlfoursquare.Model.Venue.NLFoursquareVenue;
-import com.nlefler.nlfoursquare.Model.Venue.NLFoursquareVenueSearchResponse;
+import com.nlefler.nlfoursquare.Model.Venue.Search.NLFoursquareVenueSearchResponse;
 import com.nlefler.nlfoursquare.Search.NLFoursquareVenueSearch;
 import com.nlefler.nlfoursquare.Search.NLFoursquareVenueSearchParametersBuilder;
-
-import java.util.List;
 
 import retrofit.Callback;
 import retrofit.RestAdapter;
