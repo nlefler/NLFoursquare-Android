@@ -32,7 +32,7 @@ xcshareddata/
 .idea/
 
 # Gradle
-.gradle/
+*.gradle/
 
 # Other
 .DS_Store
@@ -43,3 +43,4 @@ Podfile.lock
 
 # Keys
 keys.xml
+
