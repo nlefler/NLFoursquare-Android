@@ -1,0 +1,45 @@
+# built application files
+*.apk
+*.ap_
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+build/
+out/
+
+# Local configuration file (sdk path, etc)
+local.properties
+Android/res/values/keys.xml
+Android/res/values/com_crashlytics_export_strings.xml
+Android/.idea/workspace.xml
+Android/.idea/dictionaries/
+Android/gradle/
+xcuserdata/
+xcshareddata/
+
+# Eclipse project files
+.classpath
+.project
+
+# Android Studio project files
+.idea/
+
+# Gradle
+.gradle/
+
+# Other
+.DS_Store
+
+# CocoaPods
+Pods/
+Podfile.lock
+
+# Keys
+keys.xml
