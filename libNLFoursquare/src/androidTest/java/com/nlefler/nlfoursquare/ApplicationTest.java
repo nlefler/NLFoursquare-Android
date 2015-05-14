@@ -1,4 +1,4 @@
-package nlefler.com.nlfoursquare;
+package com.nlefler.nlfoursquare;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
