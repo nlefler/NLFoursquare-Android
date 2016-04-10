@@ -5,9 +5,9 @@ import com.nlefler.nlfoursquare.Model.Venue.Search.NLFoursquareVenueSearchRespon
 
 import java.util.Map;
 
-import retrofit.Callback;
-import retrofit.http.GET;
-import retrofit.http.QueryMap;
+import retrofit2.Callback;
+import retrofit2.http.GET;
+import retrofit2.http.QueryMap;
 
 /**
  * Created by Nathan Lefler on 5/19/14.

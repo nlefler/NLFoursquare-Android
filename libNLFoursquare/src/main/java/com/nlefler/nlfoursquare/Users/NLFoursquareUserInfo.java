@@ -5,10 +5,10 @@ import com.nlefler.nlfoursquare.Model.User.NLFoursquareUserInfoResponse;
 
 import java.util.Map;
 
-import retrofit.Callback;
-import retrofit.http.GET;
-import retrofit.http.Path;
-import retrofit.http.QueryMap;
+import retrofit2.Callback;
+import retrofit2.http.GET;
+import retrofit2.http.Path;
+import retrofit2.http.QueryMap;
 
 /**
  * Created by Nathan Lefler on 12/29/14.
