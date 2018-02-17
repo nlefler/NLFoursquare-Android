@@ -17,7 +17,7 @@ import retrofit2.http.QueryMap;
 public interface NLFoursquareUserInfo {
     public static final String UserIdSelf = "self";
 
-    @GET("/users/{userId}")
+    @GET("users/{userId}")
     Call<NLFoursquareResponse<NLFoursquareUserInfoResponse>>
     getInfo(@QueryMap Map<String, String> parameters,
                  @Path("userId") String userId);

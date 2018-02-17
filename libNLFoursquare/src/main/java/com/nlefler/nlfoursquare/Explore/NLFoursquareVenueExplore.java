@@ -14,7 +14,7 @@ import retrofit2.http.QueryMap;
  * Created by lefler on 6/19/14.
  */
 public interface NLFoursquareVenueExplore {
-    @GET("/venues/explore")
+    @GET("venues/explore")
     Call<NLFoursquareResponse<NLFoursquareVenueExploreResponse>>
     explore(@QueryMap Map<String, String> parameters);
 }
